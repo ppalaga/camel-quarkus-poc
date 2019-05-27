@@ -32,16 +32,21 @@ repositories:
     urls:
     - git:file:///home/ppalaga/orgs/quarkus/quarkus/.git
     buildArguments:
-    - -DskipTests=true
     - -Denforcer.skip=true
     - -Dformat.skip=true
     - -Dasciidoctor.skip=true
     #- -Dinvoker.skip=true
     #- -Dskip.gradle.build=true
     #- -Dmaven.test.skip=true
-    verbosity: info
+    #verbosity: info
   org.apache.camel:
     includes:
     - org.apache.camel
     urls:
     - git:file:///home/ppalaga/orgs/camel/camel/.git
+    verbosity: info
+    maven:
+      includeRequired: true
+      includes:
+      - org.apache.camel:tooling-parent
+      excludeNonRequired: true
