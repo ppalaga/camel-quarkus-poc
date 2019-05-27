@@ -81,7 +81,7 @@
     <properties>
 
         <!-- Dependency versions in alphabectic order -->
-        <quarkus.version>999-SNAPSHOT</quarkus.version>
+        <quarkus.version>999-SRC-revision-c9add195bbc0014a984dc0f73835e84ff042d021</quarkus.version>
 
         <!-- Plugins and their dependencies -->
         <version.com.mycila.license-maven-plugin>3.0</version.com.mycila.license-maven-plugin>

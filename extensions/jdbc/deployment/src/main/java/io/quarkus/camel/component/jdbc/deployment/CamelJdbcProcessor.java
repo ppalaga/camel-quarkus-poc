@@ -7,7 +7,7 @@ class CamelJdbcProcessor {
 
     @BuildStep
     FeatureBuildItem feature() {
-        return new FeatureBuildItem(FeatureBuildItem.CAMEL_JDBC);
+        return new FeatureBuildItem("camel-jdbc");
     }
 
 }
