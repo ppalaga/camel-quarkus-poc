@@ -1,0 +1,51 @@
+
+= Camel extensions for Quarkus
+
+This is a contribution to the discussion where the Camel Quarkus extensions should be moved from the
+https://github.com/quarkusio/quarkus/tree/master/extensions/camel[Quarkus git repository].
+
+Two option are in game:
+
+1. https://github.com/apache/camel[Apache Camel main repository]
+2. A separate repository.
+
+This repo is proof of concept for the option 2.
+
+== How this repo works
+
+This repo is using https://github.com/srcdeps/srcdeps-maven[srcdeps] for managing non-released dependencies of Apache
+Camel and Quarkus. `srcdeps` allows for declaring dependencies in terms of git commit sha1s instead of versions present
+in remote Maven repositories. More about `srcdeps` in
+http://ppalaga.github.io/presentations/181011-jcon-duesseldorf[this presentation].
+
+`srcdeps` is able to reduce the Maven module hierarchy of the dependency project to only those modules required by the
+current repository. Thanks to this, at this time, only 62 modules of Camel need to be built.
+
+== Advantages of the current approach:
+
+=== Small code base
+
+This repo hosts just the extensions and their tests.
+
+=== Fast build times
+
+The current approach offers fast build times even if embedded builds of Camel and Quarkus is required.
+
+`mvn clean install -DskipTests` takes:
+
+* 06:05 min with no git data cached - i.e. clone Quarkus, build Quarkus, clone Camel, build Camel, build the current repo
+* 3:03 min with both git repos cloned from the previous build and upgrade of Camel to a new revision
+* 19 sec rebuild after a change in the local code when no rebuild of any of the dependency projects was required.
+
+`mvn clean install` takes:
+
+* 06:20 min with no git data cached - i.e. clone Quarkus, build Quarkus, clone Camel, build Camel, build the current repo.
+* 3:28 min with both git repos cloned from the previous build and upgrade of Camel to a new revision
+* 32 seconds rebuild after a change in the local code when no rebuild of any of the dependency projects was required.
+
+`mvn clean install -Dnative -Dnative-image.xmx=6g` 6:43 min after a change in the local code when no rebuild of any of
+the dependency projects was required.
+
+=== Reproducibility
+
+Using `srcdeps` is reproducible accross CI and developers' workstations.
