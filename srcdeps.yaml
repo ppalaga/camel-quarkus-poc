@@ -30,7 +30,7 @@ repositories:
     includes:
     - io.quarkus
     urls:
-    - git:file:///home/ppalaga/orgs/quarkus/quarkus/.git
+    - git:https://github.com/quarkusio/quarkus.git
     buildArguments:
     - -Denforcer.skip=true
     - -Dformat.skip=true
@@ -43,7 +43,7 @@ repositories:
     includes:
     - org.apache.camel
     urls:
-    - git:file:///home/ppalaga/orgs/camel/camel/.git
+    - git:https://github.com/apache/camel.git
     verbosity: info
     maven:
       includeRequired: true
