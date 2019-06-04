@@ -30,7 +30,7 @@ repositories:
     includes:
     - io.quarkus
     urls:
-    - git:https://github.com/quarkusio/quarkus.git
+    - git:https://github.com/ppalaga/quarkus.git
     buildArguments:
     - -Denforcer.skip=true
     - -Dformat.skip=true
