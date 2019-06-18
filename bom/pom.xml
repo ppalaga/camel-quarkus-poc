@@ -31,7 +31,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <camel.version>3.0.0-SRC-revision-da4c2562d54989ef43e215321b226bb358d2e3c8</camel.version>
+        <camel.version>3.0.0-SRC-tag-camel-3.0.0-M2</camel.version>
     </properties>
 
     <dependencyManagement>

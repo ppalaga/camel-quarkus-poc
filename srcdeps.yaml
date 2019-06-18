@@ -39,14 +39,24 @@ repositories:
     #- -Dskip.gradle.build=true
     #- -Dmaven.test.skip=true
     #verbosity: info
+    maven:
+      includeRequired: true
+      includes:
+      - io.quarkus:quarkus-resteasy-deployment
+      - io.quarkus:quarkus-jdbc-h2-deployment
+      excludeNonRequired: true
   org.apache.camel:
     includes:
     - org.apache.camel
     urls:
     - git:https://github.com/apache/camel.git
+    buildArguments:
+    - -Dnoassembly
     verbosity: info
     maven:
       includeRequired: true
       includes:
       - org.apache.camel:tooling-parent
+      - org.apache.camel:apt
+      - org.apache.camel:camel-bundle-plugin
       excludeNonRequired: true

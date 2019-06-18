@@ -33,14 +33,14 @@ The current approach offers fast build times even if embedded builds of Camel an
 
 `mvn clean install -DskipTests` takes:
 
-* 06:05 min with no git data cached - i.e. clone Quarkus, build Quarkus, clone Camel, build Camel, build the current repo
-* 3:03 min with both git repos cloned from the previous build and upgrade of Camel to a new revision
+* 4:38 min with no git data cached - i.e. clone Quarkus, build Quarkus, clone Camel, build Camel, build the current repo
+* 2:50 min with both git repos cloned from the previous build and upgrade of Camel to a new revision
 * 19 sec rebuild after a change in the local code when no rebuild of any of the dependency projects was required.
 
 `mvn clean install` takes:
 
-* 06:20 min with no git data cached - i.e. clone Quarkus, build Quarkus, clone Camel, build Camel, build the current repo.
-* 3:28 min with both git repos cloned from the previous build and upgrade of Camel to a new revision
+* 5:01 min with no git data cached - i.e. clone Quarkus, build Quarkus, clone Camel, build Camel, build the current repo.
+* 3:45 min with both git repos cloned from the previous build and upgrade of Camel to a new revision
 * 32 seconds rebuild after a change in the local code when no rebuild of any of the dependency projects was required.
 
 `mvn clean install -Dnative -Dnative-image.xmx=6g` 6:43 min after a change in the local code when no rebuild of any of
